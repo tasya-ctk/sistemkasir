@@ -1,12 +1,14 @@
 {
   "version": 2,
   "functions": {
+    "dist/*.php": { "runtime": "vercel-php@0.7.1" },
     "dist/**/*.php": { "runtime": "vercel-php@0.7.1" },
-    "api/**/*.php": { "runtime": "vercel-php@0.7.1" },
     "*.php": { "runtime": "vercel-php@0.7.1" }
   },
   "routes": [
     { "src": "/", "dest": "/dist/login.php" },
+    { "src": "/dist/(.*)", "dest": "/dist/$1" },
+    { "src": "/plugins/(.*)", "dest": "/plugins/$1" },
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }
